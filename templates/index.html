@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>TextUtils — Text Analyzer</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: 'Inter', sans-serif;
+        color: #1a1a1a;
+      }
+      .navbar {
+        background-color: #1a1a2e !important;
+        padding: 14px 20px;
+      }
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 18px;
+        color: #fff !important;
+      }
+      .navbar-brand span { color: #4f8ef7; }
+      .nav-link {
+        color: rgba(255,255,255,0.75) !important;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .nav-link:hover { color: #fff !important; }
+      .search-input {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: #fff !important;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .search-input::placeholder { color: rgba(255,255,255,0.4); }
+      .btn-search {
+        background: #4f8ef7;
+        border: none;
+        color: #fff;
+        border-radius: 6px;
+        font-size: 14px;
+        padding: 6px 16px;
+      }
+      .top-banner {
+        background-color: #eef4ff;
+        border-left: 4px solid #4f8ef7;
+        color: #1a1a2e;
+        padding: 12px 20px;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .top-banner .close-btn {
+        cursor: pointer;
+        font-size: 18px;
+        color: #999;
+        background: none;
+        border: none;
+      }
+      .main-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 36px;
+        margin-top: 36px;
+        margin-bottom: 36px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        border: 1px solid #e8e8e8;
+      }
+      .main-card .section-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #1a1a2e;
+        margin-bottom: 8px;
+      }
+      textarea {
+        border: 1px solid #dde1e7 !important;
+        border-radius: 8px !important;
+        font-size: 14px !important;
+        color: #333 !important;
+        resize: vertical;
+        padding: 14px !important;
+        background-color: #fafafa !important;
+        transition: border 0.2s;
+      }
+      textarea:focus {
+        border-color: #4f8ef7 !important;
+        box-shadow: 0 0 0 3px rgba(79,142,247,0.15) !important;
+        background-color: #fff !important;
+      }
+      .divider {
+        border: none;
+        border-top: 1px solid #efefef;
+        margin: 24px 0;
+      }
+      .ops-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #999;
+        margin-bottom: 14px;
+      }
+      .custom-control-label {
+        font-size: 14px;
+        color: #444;
+        font-weight: 500;
+        cursor: pointer;
+      }
+      .custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+        background-color: #4f8ef7;
+        border-color: #4f8ef7;
+      }
+      .custom-control { margin-bottom: 10px; }
+      .btn-analyze {
+        background-color: #1a1a2e;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 11px 32px;
+        font-size: 14px;
+        font-weight: 600;
+        margin-top: 20px;
+        transition: background-color 0.2s;
+      }
+      .btn-analyze:hover {
+        background-color: #4f8ef7;
+        color: #fff;
+      }
+      footer {
+        text-align: center;
+        color: #aaa;
+        font-size: 13px;
+        padding: 20px;
+        border-top: 1px solid #efefef;
+      }
+      footer span {
+        color: #4f8ef7;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/">Codewith<span>Dip</span>TextUtils</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">Contact Us</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-search my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="top-banner" id="topBanner">
+    <span><strong>Welcome to TextUtils!</strong> A simple, powerful text analyzer tool.</span>
+    <button class="close-btn" onclick="document.getElementById('topBanner').style.display='none'">&times;</button>
+  </div>
+
+  <div class="container">
+    <div class="main-card">
+      <form action="/analyze/" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label class="section-title" for="textInput">Enter your text below</label>
+          <textarea class="form-control" name="text" id="textInput" rows="6"
+            placeholder="Paste or type your text here..."></textarea>
+        </div>
+        <hr class="divider">
+        <p class="ops-label">Select Operations</p>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name="removepunctuation" class="custom-control-input" id="customSwitch1">
+          <label class="custom-control-label" for="customSwitch1">Remove Punctuations</label>
+        </div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name="fullcaps" class="custom-control-input" id="customSwitch2">
+          <label class="custom-control-label" for="customSwitch2">UPPERCASE</label>
+        </div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name="newlineremover" class="custom-control-input" id="customSwitch3">
+          <label class="custom-control-label" for="customSwitch3">New Line Remover</label>
+        </div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name="extraspaceremover" class="custom-control-input" id="customSwitch4">
+          <label class="custom-control-label" for="customSwitch4">Extra Spaces Remover</label>
+        </div>
+        <div class="custom-control custom-switch">
+          <input type="checkbox" name="charcount" class="custom-control-input" id="customSwitch5">
+          <label class="custom-control-label" for="customSwitch5">Character Count</label>
+        </div>
+        <button type="submit" class="btn btn-analyze">Analyze Text</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    Made by <span>Dip</span> &copy; 2026
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  </body>
+</html>

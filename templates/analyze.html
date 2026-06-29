@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>TextUtils — Result</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: 'Inter', sans-serif;
+        color: #1a1a1a;
+      }
+      .navbar {
+        background-color: #1a1a2e !important;
+        padding: 14px 20px;
+      }
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 18px;
+        color: #fff !important;
+      }
+      .navbar-brand span { color: #4f8ef7; }
+      .nav-link {
+        color: rgba(255,255,255,0.75) !important;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .nav-link:hover { color: #fff !important; }
+      .search-input {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: #fff !important;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .search-input::placeholder { color: rgba(255,255,255,0.4); }
+      .btn-search {
+        background: #4f8ef7;
+        border: none;
+        color: #fff;
+        border-radius: 6px;
+        font-size: 14px;
+        padding: 6px 16px;
+      }
+      .top-banner {
+        background-color: #eef4ff;
+        border-left: 4px solid #4f8ef7;
+        color: #1a1a2e;
+        padding: 12px 20px;
+        font-size: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .top-banner .close-btn {
+        cursor: pointer;
+        font-size: 18px;
+        color: #999;
+        background: none;
+        border: none;
+      }
+      .main-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 36px;
+        margin-top: 36px;
+        margin-bottom: 36px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        border: 1px solid #e8e8e8;
+      }
+      .result-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 6px;
+      }
+      .result-badge {
+        display: inline-block;
+        background-color: #eef4ff;
+        color: #4f8ef7;
+        font-size: 12px;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        letter-spacing: 0.5px;
+      }
+      pre {
+        background-color: #fafafa;
+        border: 1px solid #e8e8e8;
+        border-radius: 8px;
+        padding: 20px;
+        font-family: 'Inter', sans-serif;
+        font-size: 14px;
+        color: #333;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        line-height: 1.7;
+      }
+      .btn-back {
+        display: inline-block;
+        margin-top: 20px;
+        background-color: #1a1a2e;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 11px 28px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+      .btn-back:hover {
+        background-color: #4f8ef7;
+        color: #fff;
+        text-decoration: none;
+      }
+      footer {
+        text-align: center;
+        color: #aaa;
+        font-size: 13px;
+        padding: 20px;
+        border-top: 1px solid #efefef;
+      }
+      footer span {
+        color: #4f8ef7;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/">Codewith<span>Dip</span>TextUtils</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact/">Contact Us</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-search my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="top-banner" id="topBanner">
+    <span><strong>Success!</strong> Your text has been analyzed.</span>
+    <button class="close-btn" onclick="document.getElementById('topBanner').style.display='none'">&times;</button>
+  </div>
+
+  <div class="container">
+    <div class="main-card">
+      <p class="result-title">Analyzed Result</p>
+      <span class="result-badge">{{ purpose }}</span>
+      <pre>{{ analyzed_text }}</pre>
+      <a href="/" class="btn-back">Analyze Another Text</a>
+    </div>
+  </div>
+
+  <footer>
+    Made by <span>Dip</span> &copy; 2026
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>TextUtils — Contact</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+        font-family: 'Inter', sans-serif;
+        color: #1a1a1a;
+      }
+      .navbar {
+        background-color: #1a1a2e !important;
+        padding: 14px 20px;
+      }
+      .navbar-brand {
+        font-weight: 700;
+        font-size: 18px;
+        color: #fff !important;
+      }
+      .navbar-brand span { color: #4f8ef7; }
+      .nav-link {
+        color: rgba(255,255,255,0.75) !important;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      .nav-link:hover { color: #fff !important; }
+      .search-input {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.2);
+        color: #fff !important;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .search-input::placeholder { color: rgba(255,255,255,0.4); }
+      .btn-search {
+        background: #4f8ef7;
+        border: none;
+        color: #fff;
+        border-radius: 6px;
+        font-size: 14px;
+        padding: 6px 16px;
+      }
+      .hero {
+        background: linear-gradient(135deg, #1a1a2e, #0f3460);
+        color: #fff;
+        padding: 70px 20px;
+        text-align: center;
+      }
+      .hero h1 {
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 14px;
+      }
+      .hero h1 span { color: #4f8ef7; }
+      .hero p {
+        font-size: 16px;
+        color: rgba(255,255,255,0.7);
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      .contact-section { padding: 60px 0; }
+      .contact-card {
+        background: #fff;
+        border: 1px solid #e8e8e8;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+      .contact-card h4 {
+        font-size: 18px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 6px;
+      }
+      .contact-card p {
+        font-size: 13px;
+        color: #888;
+        margin-bottom: 28px;
+      }
+      .form-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #444;
+        margin-bottom: 6px;
+      }
+      .form-control {
+        border: 1px solid #dde1e7;
+        border-radius: 8px;
+        font-size: 14px;
+        padding: 10px 14px;
+        background-color: #fafafa;
+        transition: border 0.2s;
+      }
+      .form-control:focus {
+        border-color: #4f8ef7;
+        box-shadow: 0 0 0 3px rgba(79,142,247,0.15);
+        background-color: #fff;
+      }
+      .btn-submit {
+        background-color: #1a1a2e;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 11px 32px;
+        font-size: 14px;
+        font-weight: 600;
+        width: 100%;
+        margin-top: 10px;
+        transition: background-color 0.2s;
+        cursor: pointer;
+      }
+      .btn-submit:hover {
+        background-color: #4f8ef7;
+        color: #fff;
+      }
+      .success-card {
+        display: none;
+        text-align: center;
+        padding: 50px 20px;
+        max-width: 600px;
+        margin: 0 auto;
+        background: #fff;
+        border: 1px solid #e8e8e8;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      }
+      .success-icon {
+        font-size: 50px;
+        margin-bottom: 16px;
+      }
+      .success-card h3 {
+        font-size: 22px;
+        font-weight: 700;
+        color: #1a1a2e;
+        margin-bottom: 8px;
+      }
+      .success-card p {
+        font-size: 14px;
+        color: #888;
+        margin-bottom: 24px;
+      }
+      .btn-home {
+        display: inline-block;
+        background-color: #1a1a2e;
+        color: #fff;
+        border-radius: 8px;
+        padding: 11px 32px;
+        font-size: 14px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.2s;
+      }
+      .btn-home:hover {
+        background-color: #4f8ef7;
+        color: #fff;
+        text-decoration: none;
+      }
+      footer {
+        text-align: center;
+        color: #aaa;
+        font-size: 13px;
+        padding: 20px;
+        border-top: 1px solid #efefef;
+        margin-top: 20px;
+      }
+      footer span {
+        color: #4f8ef7;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/">Codewith<span>Dip</span>TextUtils</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about/">About Us</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="/contact/">Contact Us</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2 search-input" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-search my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <h1>Contact <span>Us</span></h1>
+    <p>Have a question or suggestion? We'd love to hear from you!</p>
+  </div>
+
+  <div class="contact-section">
+    <div class="container">
+
+      <!-- Contact Form -->
+      <div class="contact-card" id="contactCard">
+        <h4>Send us a message</h4>
+        <p>Fill out the form below and we'll get back to you as soon as possible.</p>
+        <form id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Your Name</label>
+            <input type="text" class="form-control" placeholder="Enter your name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-control" placeholder="Enter your email" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-control" rows="5" placeholder="Write your message here..." required></textarea>
+          </div>
+          <button type="submit" class="btn-submit">Send Message</button>
+        </form>
+      </div>
+
+      <!-- Success Message -->
+      <div class="success-card" id="successCard">
+        <div class="success-icon">✅</div>
+        <h3>Message Sent!</h3>
+        <p>Thank you for reaching out. We'll get back to you as soon as possible.</p>
+        <a href="/" class="btn-home">Go to Home</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer>
+    Made by <span>Dip</span> &copy; 2026
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactCard').style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+    }
+  </script>
+
+  </body>
+</html>
